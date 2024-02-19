@@ -148,7 +148,7 @@ console.log(useLocation());
             <BuyerSelector property={soldProperty} propertyUpdateHandler={propertyUpdateHandler} id={buyerSelectorId}/>
             <ul>
                 {
-                    properties.filter(property => Number(property.seller.id) === Number(seller.id)).length === 0 && !loadingProperties ?
+                    properties.filter(property => Number(property.sellerId) === Number(seller.id)).length === 0 && !loadingProperties ?
                         <li>
                             <div className="message alert alert-info" role="alert">
                                 <i className="bi bi-info-circle"></i>&nbsp;Sellers has not yet registered any properties
@@ -156,7 +156,7 @@ console.log(useLocation());
                             </div>
                         </li>
                         :
-                        properties.filter(property => Number(property.seller.id) === Number(seller.id)).map(property => (
+                        properties.filter(property => Number(property.sellerId) === Number(seller.id)).map(property => (
                             <li key={property.id}>
                                 <div className={"priceBlock " + iconClassForStatus(property.status)}>
                                     <span>{property.status}</span><br/>
